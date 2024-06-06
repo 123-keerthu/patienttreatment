@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PATIENT TREATEMENT TYPES</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <style>
+    body {
+        background-image:url("https://th.bing.com/th/id/R.47a54046a8a0bf77b047d4189313297b?rik=nS6lOk06Bx9NEA&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f8%2f9%2f2%2f1520340-amazing-medical-wallpaper-backgrounds-1920x1200.jpg&ehk=YlJxKN9%2fiU8UGAXA1itG5a4Nd%2fOJedKuXi7BNNMeXMg%3d&risl=&pid=ImgRaw&r=0");
+    }
+    .result {
+        background-color:white;
+        border:10px solid black;
+        padding:1px;
+        width:1000px;
+        color: darkcyan; 
+        font-weight: bold;
+        font-size: 100%;
+        text-align:left;
+    }
+    label{
+        color: black;
+    }
+   
+
+   </style>
+</head>
+<body>
+    <div class="container mt-5" style="font-weight:bold;font-size:20px;color:white;">
+        <h1 class="mb-4 text-center bg-dark p-4 text-white" style="border-radius:20px;">PREDICTION OF DIFFERENT PATIENT TREATMENT TYPES</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>HAEMATOCRIT:</label>
+                <input type="text" class="form-control" name="hmt" required>
+            </div>
+
+            <div class="form-group">
+                <label>HAEMOGLOBINS:</label>
+                <input type="text" class="form-control" name="hmg" required>
+            </div>
+
+            <div class="form-group">
+                <label>ERYTHROCYTE:</label>
+                <input type="text" class="form-control" name="ert" required>
+            </div>
+
+            <div class="form-group">
+                <label>LEUCOCYTE:</label>
+                <input type="text" class="form-control" name="leu" required>
+            </div>
+
+            <div class="form-group">
+                <label>THROMBOCYTE:</label>
+                <input type="text" class="form-control" name="trm" required>
+            </div>
+
+            <div class="form-group">
+                <label>MCH:</label>
+                <input type="text" class="form-control" name="mch" required>
+            </div>
+
+            <div class="form-group">
+                <label >MCHC:</label>
+                <input type="text" class="form-control" name="mchc" required>
+            </div>
+
+            <div class="form-group">
+                <label >MCV:</label>
+                <input type="text" class="form-control" name="mcv" required>
+            </div>
+
+            <div class="form-group">
+                <label >AGE:</label>
+                <input type="text" class="form-control" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label>SEX:</label>
+                <input type="text" class="form-control" name="sex" required>
+            </div>
+
+            
+
+            <button type="submit" class="btn btn-primary text-center">Predict</button>
+        </form>
+        <div class="result">
+
+        {% if prediction %}
+            <center>
+                <div class="p-4" style="width: 70%;">
+                    <h1 style="font-weight:bold";>Predicted Treatment is : {{prediction}} care patient</h1>
+                </div>
+            </center>
+        {% endif %}   
+        </div>
+        
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
